@@ -21,19 +21,19 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
                 JudgeInfo judgeInfo = DataBaseFactory.DriveDataBase().GetJudgeInfo(user.UserID);
                 if(judgeInfo == null)
                 {
-                    return new OperationResult<JudgeResult>("批改失败！", true, null);
+                    return new OperationResult<JudgeResult>("批改失败！", false, null);
                 }
                 judgeInfo.QuestionNum += judgeResult.TotalNum;
                 judgeInfo.QuestionErrorNum += judgeResult.ErrorNum;
                 judgeInfo.LastestCompleteTime = DateTime.Now;
                 if(!JudgeInfoLogic.UpdateJudgeInfo(judgeInfo, user))
                 {
-                    return new OperationResult<JudgeResult>("更改批改信息失败！", true, null);
+                    return new OperationResult<JudgeResult>("更改批改信息失败！", false, null);
                 }
             }
             catch (Exception e)
             {
-                return new OperationResult<JudgeResult>("批改失败！" + e.Message, true, null);
+                return new OperationResult<JudgeResult>("批改失败！" + e.Message, false, null);
             }
             return new OperationResult<JudgeResult>("批改成功！", true, judgeResult);
         }
@@ -46,7 +46,7 @@ namespace CalculateOnlineJudge.BusinessLogic_BLL
             }
             catch (Exception e)
             {
-                return new OperationResult<Exercise>("生成失败！" + e.Message, true, null);
+                return new OperationResult<Exercise>("生成失败！" + e.Message, false, null);
             }
             return new OperationResult<Exercise>("生成成功！", true, exercise);
         }

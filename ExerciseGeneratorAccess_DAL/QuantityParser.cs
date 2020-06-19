@@ -35,7 +35,7 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
             if ((operationType & OperationType.Sub) == OperationType.Sub) operationCount++;
             if ((operationType & OperationType.Mul) == OperationType.Mul) operationCount++;
             if ((operationType & OperationType.Div) == OperationType.Div) operationCount++;
-            if ((operationType & OperationType.DivWithRemainder) == OperationType.Plus) operationCount++;
+            if ((operationType & OperationType.DivWithRemainder) == OperationType.DivWithRemainder) operationCount++;
             int countPerOperation = quantites[0] / operationCount;
             int remainder = quantites[0] % operationCount;
             if ((operationType & OperationType.Plus) == OperationType.Plus) quantites[1] = countPerOperation;

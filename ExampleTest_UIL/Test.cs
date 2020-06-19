@@ -13,9 +13,11 @@ namespace CalculateOnlineJudge.ExampleTest_UIL
         public static void Main(string[] args)
         {
             Console.WriteLine("输入创建用户名，例如：FREEstrikerABbo");
-            string userName = Console.ReadLine();
+            //string userName = Console.ReadLine();
+            string userName = "FREEstrikerABbos";
             Console.WriteLine("输入创建密码，例如：1236zccg99326TEST");
-            string password = Console.ReadLine();
+            //string password = Console.ReadLine();
+            string password = "1236zccg99326TEST";
             Console.WriteLine(UserLogic.CreateUser(userName, password).Prompt);
             var userOR = UserLogic.LogInUser(userName, password);
             Console.WriteLine(userOR.Prompt);
@@ -24,10 +26,11 @@ namespace CalculateOnlineJudge.ExampleTest_UIL
             var judgeInfoOR = JudgeInfoLogic.GetJudgeInfo(userOR.Result);
             Console.WriteLine(judgeInfoOR.Prompt);
             ExerciseOption exerciseOption = new ExerciseOption(IntervalType.LE10,
-                OperationType.Plus |
-                OperationType.Sub |
-                OperationType.Mul |
-                OperationType.Div, QuantityType.E10);
+                //OperationType.Plus |
+                //OperationType.Sub |
+                //OperationType.Mul |
+                //OperationType.Div |
+                OperationType.DivWithRemainder, QuantityType.E10);
             var exerciseOR = ExerciseLogic.GetExercise(exerciseOption);
             Console.WriteLine(exerciseOR.Prompt);
             for (int i = 0; i < exerciseOR.Result.ExerciseUnits.Length; i++)

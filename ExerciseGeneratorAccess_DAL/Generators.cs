@@ -134,7 +134,11 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
             if (max < mid) { int t = max; max = mid; mid = t; }
             if (max < min) { int t = max; max = min; min = t; }
             if (mid < min) { int t = mid; mid = min; min = t; }
-            int d = mid + max + min;
+            if(min == mid)
+            {
+                min = mid == 1 ? 1 : mid - 1;
+            }
+            int d = mid * max + min;
             string s = $"{d}÷{mid}=";
             exerciseUnit = new ExerciseUnit(s, max, min, OperationType);
         }

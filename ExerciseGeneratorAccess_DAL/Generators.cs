@@ -27,7 +27,7 @@ namespace CalculateOnlineJudge.ExerciseGeneratorAccess_DAL
         protected virtual void OnGetRandom(out Random random)
         {
             //random = new Random(new Guid().GetHashCode());
-            random = new Random(this.GetHashCode());
+            random = new Random(this.GetHashCode() + (int)DateTime.Now.ToBinary());
             
         }
         protected virtual void OnSetNumInterval(out int start, out int end)

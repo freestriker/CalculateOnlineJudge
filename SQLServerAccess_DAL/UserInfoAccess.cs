@@ -57,7 +57,7 @@ namespace CalculateOnlineJudge.SQLServerAccess_DAL
                         WHERE 
                             userid = {3}
                         ",
-                        userInfo.Birthday,
+                        userInfo.Birthday == null ? "" : userInfo.Birthday.ToString(),
                         userInfo.Phone,
                         userInfo.Email,
                         userID),

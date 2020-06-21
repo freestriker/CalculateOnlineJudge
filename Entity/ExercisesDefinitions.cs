@@ -91,8 +91,8 @@ namespace CalculateOnlineJudge.Entity
         public DateTime StartTime { get => startTime;}
         public DateTime EndTime { get => endTime;}
         public ExerciseUnit[] ErrorExerciseUnit { get => errorExerciseUnit;}
-        public float CorrectRate { get => 1f - errorNum / totalNum; }
-        public float ErrorRate { get => errorNum / totalNum; }
+        public float CorrectRate { get => 1f - (float)errorNum / (float)totalNum; }
+        public float ErrorRate { get => (float)errorNum / (float)totalNum; }
         public int[] ErrorExerciseIndex { get => errorExerciseIndex; }
     }
     public class ExerciseResult
